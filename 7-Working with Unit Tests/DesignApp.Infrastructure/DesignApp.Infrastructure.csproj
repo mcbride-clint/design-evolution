@@ -5,8 +5,8 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\DesignApp.Application\DesignApp.Application.csproj" />
     <ProjectReference Include="..\DesignApp.Domain\DesignApp.Domain.csproj" />
-    <ProjectReference Include="..\DesignApp.Infrastructure\DesignApp.Infrastructure.csproj" />
   </ItemGroup>
 
 </Project>

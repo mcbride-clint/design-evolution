@@ -1,11 +1,10 @@
-﻿using DesignApp.Domain.Models;
-using System;
+﻿using DesignApp.Application.Interfaces;
+using DesignApp.Domain.Models;
 using System.Collections.Generic;
-using System.Text;
 
 namespace DesignApp.Infrastructure.Persistance
 {
-    public class UserRepository
+    public class UserRepository : IUserRepository
     {
         public User Find(string userId)
         {

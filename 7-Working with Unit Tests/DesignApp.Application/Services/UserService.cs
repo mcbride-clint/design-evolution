@@ -1,6 +1,9 @@
-﻿using DesignApp.Domain.Models;
-using DesignApp.Infrastructure.Persistance;
+﻿using DesignApp.Application.Interfaces;
+using DesignApp.Domain.Models;
+using System;
 using System.Collections.Generic;
+using System.Diagnostics;
+using System.Linq;
 
 namespace DesignApp.Application.Services
 {
@@ -10,33 +13,53 @@ namespace DesignApp.Application.Services
     /// </summary>
     public class UserService
     {
+        private readonly IUserRepository _userRepo;
+
+        public UserService(IUserRepository userRepo)
+        {
+            _userRepo = userRepo;
+        }
+
         public User FindUser(string userId)
         {
-            UserRepository repo = new UserRepository();
-
             // Get Data from Repository
-            User user = repo.Find(userId);
+            User user = _userRepo.Find(userId);
 
             return user;
         }
 
         public List<User> GetAllUsers()
         {
-            UserRepository repo = new UserRepository();
-
             // Get Data from Repository
-            List<User> users = repo.GetAll();
+            List<User> users = _userRepo.GetAll();
 
             return users;
         }
 
+        public int UpdateUser(User user)
+        {
+            // Validate Changes
+            if (!IsOwnerCodeValid(user.Owner))
+            {
+                throw new ArgumentOutOfRangeException($"Owner Code {user.Owner} is not valid for {user.UserId}");
+            }
+
+            _userRepo.Update(user);
+            return 1;
+        }
+
+        private bool IsOwnerCodeValid(string owner)
+        {
+            string[] allowedOwners = new string[] { "A", "B", "C" };
+
+            return allowedOwners.Contains(owner.ToUpper());
+        }
+
         public int SaveAllUsers(List<User> users)
         {
-            UserRepository repo = new UserRepository();
-
             foreach (User user in users)
             {
-                repo.Update(user);
+                UpdateUser(user);
             }
             return 1;
         }

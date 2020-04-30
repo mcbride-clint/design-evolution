@@ -1,8 +1,8 @@
-﻿using DesignApp.Domain.Models;
-using DesignApp.Application.Services;
+﻿using DesignApp.Application.Services;
+using DesignApp.Domain.Models;
+using DesignApp.Infrastructure.Persistance;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using System.Collections.Generic;
-using System.Data;
 
 namespace DesignApp.Pages.Users
 {
@@ -27,7 +27,8 @@ namespace DesignApp.Pages.Users
         /// <returns></returns>
         public void OnGet()
         {
-            UserService service = new UserService();
+            UserRepository userRepo = new UserRepository();
+            UserService service = new UserService(userRepo);
             Users = service.GetAllUsers();
         }
 
@@ -38,7 +39,8 @@ namespace DesignApp.Pages.Users
         /// <param name="row"></param>
         public void OnPost()
         {
-            UserService service = new UserService();
+            UserRepository userRepo = new UserRepository();
+            UserService service = new UserService(userRepo);
             service.SaveAllUsers(Users);
         }
 
