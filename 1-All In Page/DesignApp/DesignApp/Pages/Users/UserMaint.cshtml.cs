@@ -12,7 +12,7 @@ namespace DesignApp.Pages.Users
          */
 
         /// <summary>
-        /// This would be our "Grid Page".  
+        /// This would simulate our "Grid Page".  
         /// Runs Sql to get the full list and sends it to the front end.
         /// </summary>
         /// <returns></returns>
@@ -30,22 +30,37 @@ namespace DesignApp.Pages.Users
         }
 
         /// <summary>
-        /// Receives Data From Front End to Save
+        /// Simulates one of our "Save Pages"
+        /// Receives All the Data From Front End to Save
         /// </summary>
         /// <param name="row"></param>
-        public void OnPost(DataRow row)
+        public void OnPost(DataTable data)
         {
             FakeDb db = new FakeDb();
 
-            // Get the data back from the page
-            string userid = row.Field<string>(0);
-            string newOwner = row.Field<string>(1);
+            // Not Exactly how we do it but should be enough to get the idea
+            foreach (DataRow row in data.Rows)
+            {
+                // Store the data into individual variables
+                string userid = row.Field<string>(0);
+                string newOwner = row.Field<string>(1);
 
-            // Build Sql
-            var sql = "Update UserId Set Owner = '" + newOwner + "' Where UserId = '" + userid + "'";
+                // Build Sql
+                var sql = "Update UserId Set Owner = '" + newOwner + "' Where UserId = '" + userid + "'";
 
-            // Execute Update
-            db.RunSql(sql);
+                // Execute Update
+                db.RunSql(sql);
+            }
         }
+
+        /*
+         * Pros:
+         * Everything is right here.
+         * No Chance of breaking other pages since everything is Silo'd(sp?)
+         * 
+         * Cons:
+         * All the Code is very rigid and stuck to the UI
+         * No way to verify the code is working correctly without starting the website and testing every possible input
+         */
     }
 }
