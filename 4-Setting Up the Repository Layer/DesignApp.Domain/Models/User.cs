@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace DesignApp.Application.Models
+namespace DesignApp.Domain.Models
 {
     public class User
     {

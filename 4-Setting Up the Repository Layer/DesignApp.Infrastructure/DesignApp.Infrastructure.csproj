@@ -6,6 +6,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\..\3-Move Logic out of UI\DesignApp.Application\DesignApp.Application.csproj" />
+    <ProjectReference Include="..\DesignApp.Domain\DesignApp.Domain.csproj" />
   </ItemGroup>
 
 </Project>

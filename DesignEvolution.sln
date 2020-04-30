@@ -45,6 +45,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DesignApp.Domain", "6-Movin
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DesignApp.Infrastructure", "6-Moving to Dependency Injection\DesignApp.Infrastructure\DesignApp.Infrastructure.csproj", "{05ED5CA7-B7DB-4721-A390-FAF6CA19C6AF}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DesignApp.Domain", "4-Setting Up the Repository Layer\DesignApp.Domain\DesignApp.Domain.csproj", "{7B4BB2C0-BE13-4530-A7B5-FDFE83D86678}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -111,6 +113,10 @@ Global
 		{05ED5CA7-B7DB-4721-A390-FAF6CA19C6AF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{05ED5CA7-B7DB-4721-A390-FAF6CA19C6AF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{05ED5CA7-B7DB-4721-A390-FAF6CA19C6AF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7B4BB2C0-BE13-4530-A7B5-FDFE83D86678}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7B4BB2C0-BE13-4530-A7B5-FDFE83D86678}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7B4BB2C0-BE13-4530-A7B5-FDFE83D86678}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7B4BB2C0-BE13-4530-A7B5-FDFE83D86678}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -131,6 +137,7 @@ Global
 		{AC7279FD-3205-4784-8210-5A281AB61382} = {EA2E92A1-A36B-4A2C-AEED-3562D2287808}
 		{8E4CCD2E-B8DA-4130-9595-FA1FA82CE294} = {EA2E92A1-A36B-4A2C-AEED-3562D2287808}
 		{05ED5CA7-B7DB-4721-A390-FAF6CA19C6AF} = {EA2E92A1-A36B-4A2C-AEED-3562D2287808}
+		{7B4BB2C0-BE13-4530-A7B5-FDFE83D86678} = {37298BCE-F4F4-476D-9B9C-E53778F5EE5E}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {547755D9-7650-46CC-9F4B-F634C3C2014B}
