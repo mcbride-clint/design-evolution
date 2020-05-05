@@ -8,13 +8,6 @@ namespace DesignApp.Pages.Users
 {
     public class UserMaintModel : PageModel
     {
-        private readonly UserService _userService;
-
-        public UserMaintModel(UserService userService)
-        {
-            _userService = userService;
-        }
-
         /*
          * Simulates our current structure in our Application with a basic page.
          * It can see all the UserIds in the Database and Edit the whole List that is sent back.
@@ -34,7 +27,9 @@ namespace DesignApp.Pages.Users
         /// <returns></returns>
         public void OnGet()
         {
-            Users = _userService.GetAllUsers();
+            var userRepo = new UserRepository();
+            var userService = new UserService(userRepo);
+            Users = userService.GetAllUsers();
         }
 
         /// <summary>
@@ -44,7 +39,9 @@ namespace DesignApp.Pages.Users
         /// <param name="row"></param>
         public void OnPost()
         {
-            _userService.SaveAllUsers(Users);
+            var userRepo = new UserRepository();
+            var userService = new UserService(userRepo);
+            userService.SaveAllUsers(Users);
         }
 
 
